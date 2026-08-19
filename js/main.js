@@ -45,20 +45,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Testimonial carousel ---------- */
   const testimonials = [
     {
-      quote: "„Profesionální přístup a schopnost řešit neočekávané problémy. Paní Trefná vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane naším makléřem.“",
-      cite: "— Rodina P. · Prodej rodinného domu, Středočeský kraj",
+      quote: "„Paní Trefná bezproblémově zajistila veškeré služby (včetně právních konzultací a přípravy všech potřebných dokladů) při trochu problémovém prodeji částí lesa, takže celá transakce proběhla hladce a pro mne naprosto bez starostí. Moc děkuji.“",
+      cite: "— Ing. Petr Kusebauch · Prodej pozemku",
     },
     {
-      quote: "„Lidský přístup, přesné dodržení dohod a kompletní právní servis po celou dobu prodeje.“",
-      cite: "— Ing. J. N. · Prodej bytu, Praha",
+      quote: "„Realitní kancelář Romana Reality mi nabídla při prodeji mých několika pozemků ve Vimperku kvalifikovaný, spolehlivý odhad s možností prodeje, trpělivost, výbornou komunikaci, bezproblémovou spolupráci a naprosto profesionální přístup s nadstandardním lidským přístupem.“",
+      cite: "— Zdena P. · Prodej pozemků",
     },
     {
-      quote: "„Vyřešila komplikace s dokumenty a komunikovala za nás s úřady, aniž bychom se museli o cokoliv starat.“",
-      cite: "— M. a K. H. · Prodej nemovitosti z dědictví",
+      quote: "„Paní Trefnou jednoznačně doporučuji! Můžete očekávat profesionální a současně milý a vstřícný přístup. Prodej bytu proběhl ukázkově. Dokumenty měla vždy precizně připravené a jednala se mnou na rovinu. Je to realitní makléřka na správném místě.“",
+      cite: "— Kateřina Z. · Prodej bytu",
     },
     {
-      quote: "„Znalost lokality, profesionální prezentace a rychlá komunikace po celou dobu spolupráce.“",
-      cite: "— P. Z. · Prodej bytu, Praha",
+      quote: "„Překvapil mě její profesionální přístup se smyslem pro obchod. Hned na počátku měla z mé strany několik zadání, která bezchybně splnila. Vzhledem k jejím schopnostem vřele doporučuji.“",
+      cite: "— Jana K. · Prodej rodinného domu",
+    },
+    {
+      quote: "„Paní Romana Trefná prodávala můj pozemek – stavební parcelu v obci Kly u Mělníka. Sjednala mi velmi dobrou cenu v krátkém čase, zajistila uzavření smlouvy a vyřídila veškeré potřebné náležitosti. Její přístup byl profesionální.“",
+      cite: "— Hana K. · Prodej pozemku",
+    },
+    {
+      quote: "„Profesionální přístup a schopnost řešit neočekávané problémy. Vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane mým makléřem.“",
+      cite: "— Marco P. · Prodej restaurace",
     },
   ];
 
@@ -100,13 +108,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const stepNames = {
       1: "Typ nemovitosti",
       2: "Lokalita",
-      3: "Velikost",
+      3: "Parametry",
       4: "Účel",
       5: "Kontakt",
     };
 
+    const paramsQuestions = {
+      byt: "Jaké jsou parametry bytu?",
+      dum: "Jaké jsou parametry domu?",
+      pozemek: "Jaké jsou parametry pozemku?",
+      ostatni: "Jaké jsou parametry nemovitosti?",
+    };
+
+    const typeToParams = {
+      Byt: "byt",
+      "Rodinný dům": "dum",
+      Pozemek: "pozemek",
+      "Rekreační objekt": "ostatni",
+      "Komerční nemovitost": "ostatni",
+      "Jiná nemovitost": "ostatni",
+    };
+
     const answers = { typ: "", cil: "" };
     let current = 1;
+
+    function updateParamsVisibility() {
+      const key = typeToParams[answers.typ] || "byt";
+      wizard.querySelectorAll(".wizard__params").forEach((group) => {
+        group.classList.toggle("is-active", group.dataset.params === key);
+      });
+      const question = wizard.querySelector("#wizardParamsQuestion");
+      if (question) question.textContent = paramsQuestions[key];
+    }
 
     function showStep(n) {
       steps.forEach((s) => s.classList.remove("is-active"));
@@ -117,11 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
         wizardProgress.style.display = "none";
         return;
       }
+      if (n === 3) updateParamsVisibility();
       stepLabel.textContent = `Krok ${n} / ${totalSteps}`;
       stepName.textContent = stepNames[n];
       progressBar.style.width = `${(n / totalSteps) * 100}%`;
       backBtn.style.visibility = n === 1 ? "hidden" : "visible";
-      nextBtn.textContent = n === totalSteps ? "Odeslat poptávku" : "";
       if (n === totalSteps) {
         nextBtn.innerHTML = 'Odeslat poptávku <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
       } else {
@@ -136,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
           group.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("is-selected"));
           btn.classList.add("is-selected");
           answers[key] = btn.textContent.trim();
+          if (key === "typ") updateParamsVisibility();
         });
       });
     });
@@ -147,6 +181,41 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    function fieldValue(id) {
+      const el = wizard.querySelector(id);
+      return el && el.value ? el.value : "neuvedeno";
+    }
+
+    function buildParamsLines() {
+      const key = typeToParams[answers.typ] || "byt";
+      if (key === "byt") {
+        return [
+          `Dispozice: ${fieldValue("#wBytDispozice")}`,
+          `Užitná plocha: ${fieldValue("#wBytPlocha")} m²`,
+          `Vlastnictví: ${fieldValue("#wBytVlastnictvi")}`,
+          `Stavba: ${fieldValue("#wBytStavba")}`,
+          `Patro: ${fieldValue("#wBytPatro")}`,
+        ];
+      }
+      if (key === "dum") {
+        return [
+          `Velikost: ${fieldValue("#wDumVelikost")}`,
+          `Užitná plocha: ${fieldValue("#wDumPlocha")} m²`,
+          `Plocha pozemku: ${fieldValue("#wDumPozemek")} m²`,
+        ];
+      }
+      if (key === "pozemek") {
+        return [
+          `Druh pozemku: ${fieldValue("#wPozemekDruh")}`,
+          `Plocha pozemku: ${fieldValue("#wPozemekPlocha")} m²`,
+        ];
+      }
+      return [
+        `Užitná plocha: ${fieldValue("#wOstatniPlocha")} m²`,
+        `Plocha pozemku: ${fieldValue("#wOstatniPozemek")} m²`,
+      ];
+    }
+
     nextBtn.addEventListener("click", () => {
       if (current < totalSteps) {
         current += 1;
@@ -154,19 +223,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const location = wizard.querySelector("#wLocation").value || "neuvedeno";
-      const size = wizard.querySelector("#wSize").value || "neuvedeno";
-      const layout = wizard.querySelector("#wLayout").value || "neuvedeno";
-      const name = wizard.querySelector("#wName").value || "neuvedeno";
-      const contact = wizard.querySelector("#wContact").value || "neuvedeno";
-
       const body = [
-        `Jméno: ${name}`,
-        `Kontakt: ${contact}`,
+        `Jméno: ${fieldValue("#wName")}`,
+        `Telefon: ${fieldValue("#wPhone")}`,
+        `E-mail: ${fieldValue("#wEmail")}`,
         `Typ nemovitosti: ${answers.typ || "neuvedeno"}`,
-        `Lokalita: ${location}`,
-        `Velikost: ${size} m²`,
-        `Dispozice: ${layout}`,
+        `Lokalita: ${fieldValue("#wLocation")}`,
+        ...buildParamsLines(),
         `Cíl: ${answers.cil || "neuvedeno"}`,
       ].join("\n");
 

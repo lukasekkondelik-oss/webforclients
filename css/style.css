@@ -5,35 +5,35 @@
    ========================================================================== */
 
 :root {
-  /* Backgrounds */
-  --cream: #fbf6ec;
-  --cream-2: #f3ead8;
-  --navy: #0f1428;
-  --navy-2: #1a2140;
-  --navy-3: #232c52;
+  /* Backgrounds — matches the client's printed materials (cedule/banner) */
+  --cream: #f8f4e9;
+  --cream-2: #efe7d2;
+  --navy: #141109;
+  --navy-2: #1e1a10;
+  --navy-3: #2b2416;
 
   /* Text */
-  --ink: #201b14;
-  --ink-soft: #6b6255;
-  --on-navy: #f5f1e8;
-  --on-navy-soft: #b7b9c9;
+  --ink: #1c1912;
+  --ink-soft: #6b6152;
+  --on-navy: #f5f1e4;
+  --on-navy-soft: #beb49a;
 
-  /* Accent — bolder terracotta/burnt-orange, still the same brand hue */
-  --accent: #e0651f;
-  --accent-dark: #b94f16;
-  --accent-light: #f4a25a;
-  --accent-glow: rgba(224, 101, 31, 0.28);
+  /* Accent — the client's brand gold, sampled from her print logo */
+  --accent: #b0913f;
+  --accent-dark: #8a6f2e;
+  --accent-light: #d3b876;
+  --accent-glow: rgba(176, 145, 63, 0.3);
 
   /* Structure */
-  --border: #e5dac2;
-  --border-dark: #323b63;
+  --border: #e2d7b8;
+  --border-dark: #3a3320;
   --radius: 14px;
   --radius-sm: 10px;
-  --shadow: 0 20px 45px -20px rgba(15, 20, 40, 0.35);
-  --shadow-sm: 0 8px 20px -10px rgba(15, 20, 40, 0.2);
+  --shadow: 0 20px 45px -20px rgba(20, 17, 9, 0.4);
+  --shadow-sm: 0 8px 20px -10px rgba(20, 17, 9, 0.22);
 
-  --font-serif: "Fraunces", "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Poppins", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --container: 1180px;
 }
@@ -185,23 +185,26 @@ h2.section-title {
 
 .btn--outline {
   background: transparent;
-  border-color: var(--border);
+  border-width: 2px;
+  border-color: var(--accent);
   color: var(--ink);
+  font-weight: 700;
+  padding: 13px 25px;
 }
 
 .section--navy .btn--outline {
-  border-color: var(--border-dark);
   color: var(--on-navy);
 }
 
 .btn--outline:hover {
+  background: var(--accent);
   border-color: var(--accent);
-  color: var(--accent-dark);
+  color: #fff8ee;
 }
 
 .section--navy .btn--outline:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
+  background: var(--accent);
+  color: var(--navy);
 }
 
 .btn--accent {
@@ -296,34 +299,31 @@ h2.section-title {
   gap: 12px;
 }
 
-.brand__mark {
+.brand__icon {
   width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--accent-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
+  height: 18px;
+  color: var(--ink);
   flex-shrink: 0;
 }
 
 .brand__name {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-weight: 800;
+  font-size: 1.05rem;
   line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
 }
 
 .brand__tag {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
   color: var(--ink-soft);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .main-nav {
@@ -368,6 +368,32 @@ h2.section-title {
   padding: 6px;
 }
 
+@media (max-width: 1320px) {
+  .site-header .container {
+    gap: 16px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .brand__tag {
+    display: none;
+  }
+
+  .header-phone span {
+    display: none;
+  }
+}
+
 .nav-toggle span {
   display: block;
   width: 22px;
@@ -382,6 +408,10 @@ h2.section-title {
   position: relative;
   overflow: hidden;
   padding: 72px 0 96px;
+  background-image: linear-gradient(100deg, rgba(248, 244, 233, 0.97) 0%, rgba(248, 244, 233, 0.86) 40%, rgba(248, 244, 233, 0.97) 75%), url("../images/hero-texture.jpg");
+  background-size: auto 100%, cover;
+  background-position: left center, left 30%;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -418,9 +448,9 @@ h2.section-title {
 }
 
 .hero h1 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent-dark);
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .hero__lede {
@@ -471,7 +501,8 @@ h2.section-title {
 
 .media-placeholder img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
 }
 
@@ -622,11 +653,6 @@ h2.section-title {
   align-items: center;
 }
 
-.about__media .media-placeholder__fallback {
-  aspect-ratio: 4/5;
-  background: linear-gradient(160deg, #f3e3c9 0%, var(--accent-light) 55%, var(--accent-dark) 100%);
-}
-
 .about h2 {
   font-size: clamp(1.9rem, 3vw, 2.5rem);
 }
@@ -744,6 +770,16 @@ h2.section-title {
   border-color: var(--accent);
   background: rgba(224, 101, 31, 0.08);
   color: var(--accent-dark);
+}
+
+.wizard__params {
+  display: none;
+}
+
+.wizard__params.is-active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
 }
 
 .wizard__field {
@@ -864,10 +900,18 @@ h2.section-title {
 
 /* ---------- Listings ---------- */
 .listing-card {
+  display: block;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
   background: #fff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.listing-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
 }
 
 .listing-card__media {
@@ -878,6 +922,13 @@ h2.section-title {
 .listing-card__media .media-placeholder__fallback {
   aspect-ratio: auto;
   height: 100%;
+}
+
+.listing-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .listing-tag {
@@ -898,6 +949,45 @@ h2.section-title {
   background: var(--navy);
 }
 
+.listing-card__map {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--cream-2);
+}
+
+.listing-card__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.listing-card__map .listing-tag {
+  left: auto;
+  right: 14px;
+}
+
+.listing-card__maplink {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.listing-card__maplink:hover {
+  color: var(--accent-dark);
+}
+
 .listing-card__body {
   padding: 20px 22px 24px;
 }
@@ -911,6 +1001,12 @@ h2.section-title {
 .listing-card__title {
   font-size: 1.1rem;
   margin-bottom: 10px;
+}
+
+.listing-card__desc {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
 }
 
 .listing-card__meta {
@@ -982,10 +1078,25 @@ h2.section-title {
 }
 
 .testimonial-card {
+  position: relative;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 26px;
   background: var(--cream);
+}
+
+.testimonial-card__avatar {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonial-card .testimonial-feature__quote-mark {
@@ -1182,14 +1293,16 @@ h2.section-title {
   gap: 40px;
 }
 
-.footer-grid .brand__name,
-.footer-grid .brand__tag {
-  color: var(--on-navy);
+.footer-grid .brand__name {
+  color: var(--accent-light);
 }
 
-.footer-grid .brand__mark {
-  background: var(--accent);
-  color: var(--navy);
+.footer-grid .brand__tag {
+  color: var(--on-navy-soft);
+}
+
+.footer-grid .brand__icon {
+  color: var(--accent-light);
 }
 
 .footer-about {
@@ -1346,7 +1459,8 @@ h2.section-title {
 }
 
 .back-link {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 30px;
@@ -1450,6 +1564,10 @@ h2.section-title {
 
   .wizard__options {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wizard__params.is-active {
+    grid-template-columns: 1fr;
   }
 
   .hero__facts {

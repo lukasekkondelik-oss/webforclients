@@ -15,13 +15,14 @@
 <meta property="og:title" content="Romana Trefná – Realitní makléřka Praha a Střední Čechy" />
 <meta property="og:description" content="21 let zkušeností s bezpečným prodejem, koupí a pronájmem nemovitostí v Praze a Středočeském kraji. Odhad ceny nemovitosti zdarma." />
 <meta property="og:url" content="https://www.romanareality.cz/" />
+<meta property="og:image" content="https://www.romanareality.cz/images/romana-trefna.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230f1428'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e0651f' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f8f4e9'/%3E%3Cpath d='M8 42 L32 13 L44 27 L44 19 L52 19 L52 34 L59 41' stroke='%23b0913f' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='20' r='3.5' stroke='%23b0913f' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
 
 <script type="application/ld+json">
 {
@@ -29,7 +30,7 @@
   "@type": "RealEstateAgent",
   "name": "Romana Reality – Romana Trefná",
   "founder": { "@type": "Person", "name": "Romana Trefná" },
-  "image": "https://www.romanareality.cz/images/og-cover.jpg",
+  "image": "https://www.romanareality.cz/images/romana-trefna.jpg",
   "url": "https://www.romanareality.cz/",
   "telephone": "+420720347693",
   "email": "romana@romanareality.cz",
@@ -95,10 +96,13 @@
 <header class="site-header">
   <div class="container">
     <a href="#top" class="brand">
-      <span class="brand__mark">R</span>
+      <svg class="brand__icon" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="63.5" cy="23" r="6" stroke="currentColor" stroke-width="4"/>
+      </svg>
       <span>
         <span class="brand__name">Romana Reality</span>
-        <span class="brand__tag">Romana Trefná</span>
+        <span class="brand__tag">20 let na realitním trhu</span>
       </span>
     </a>
 
@@ -150,10 +154,7 @@
 
       <div class="hero__media">
         <div class="media-placeholder">
-          <div class="media-placeholder__fallback" role="img" aria-label="Interiér nemovitosti s výhledem na Prahu – ilustrační fotografie, doporučujeme nahradit reálným snímkem">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6"/></svg>
-          </div>
-          <span class="media-placeholder__caption">Fotografie: nahradit reálnou</span>
+          <img src="images/romana-trefna.jpg" alt="Romana Trefná, realitní makléřka Romana Reality" width="1000" height="1570" loading="eager" />
         </div>
         <div class="hero__badge">
           <span class="eyebrow">Ověřená zkušenost</span>
@@ -251,10 +252,7 @@
     <div class="container about">
       <div class="about__media">
         <div class="media-placeholder">
-          <div class="media-placeholder__fallback" role="img" aria-label="Detail pracovního stolu s deskami a klíči – ilustrační fotografie, doporučujeme nahradit reálným portrétem">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="14" height="10" rx="1"/><circle cx="19" cy="17" r="2"/><path d="M19 15v-3M10 7V5a2 2 0 0 1 2-2h0"/></svg>
-          </div>
-          <span class="media-placeholder__caption">Fotografie: nahradit reálnou</span>
+          <img src="images/romana-trefna.jpg" alt="Romana Trefná, realitní makléřka s 21 lety praxe" width="1000" height="1570" loading="lazy" />
         </div>
       </div>
       <div>
@@ -309,14 +307,95 @@
         </div>
 
         <div class="wizard__step" data-step="3">
-          <p class="wizard__question">Jaká je orientační velikost nemovitosti?</p>
-          <div class="wizard__field">
-            <label for="wSize">Plocha v m²</label>
-            <input type="number" id="wSize" name="size" min="1" placeholder="např. 85" />
+          <p class="wizard__question" id="wizardParamsQuestion">Jaké jsou parametry nemovitosti?</p>
+
+          <div class="wizard__params" data-params="byt">
+            <div class="wizard__field">
+              <label for="wBytDispozice">Dispozice</label>
+              <select id="wBytDispozice" name="byt_dispozice">
+                <option value="">Vyberte dispozici</option>
+                <option>1+kk</option>
+                <option>1+1</option>
+                <option>2+kk</option>
+                <option>2+1</option>
+                <option>3+kk</option>
+                <option>3+1</option>
+                <option>4+kk</option>
+                <option>4+1</option>
+                <option>5+kk a větší</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wBytPlocha" name="byt_plocha" min="1" placeholder="např. 68" />
+            </div>
+            <div class="wizard__field">
+              <label for="wBytVlastnictvi">Vlastnictví</label>
+              <select id="wBytVlastnictvi" name="byt_vlastnictvi">
+                <option value="">Vyberte typ vlastnictví</option>
+                <option>Osobní</option>
+                <option>Družstevní</option>
+                <option>Jiné</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytStavba">Stavba</label>
+              <select id="wBytStavba" name="byt_stavba">
+                <option value="">Vyberte typ stavby</option>
+                <option>Panel</option>
+                <option>Cihla</option>
+                <option>Ostatní</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytPatro">Patro</label>
+              <input type="text" id="wBytPatro" name="byt_patro" placeholder="např. 3. z 8" />
+            </div>
           </div>
-          <div class="wizard__field">
-            <label for="wLayout">Dispozice (nepovinné)</label>
-            <input type="text" id="wLayout" name="layout" placeholder="např. 3+kk" />
+
+          <div class="wizard__params" data-params="dum">
+            <div class="wizard__field">
+              <label for="wDumVelikost">Velikost</label>
+              <input type="text" id="wDumVelikost" name="dum_velikost" placeholder="např. 3+1" />
+            </div>
+            <div class="wizard__field">
+              <label for="wDumPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wDumPlocha" name="dum_plocha" min="1" placeholder="např. 120" />
+            </div>
+            <div class="wizard__field">
+              <label for="wDumPozemek">Plocha pozemku (m²)</label>
+              <input type="number" id="wDumPozemek" name="dum_pozemek" min="1" placeholder="např. 500" />
+            </div>
+          </div>
+
+          <div class="wizard__params" data-params="pozemek">
+            <div class="wizard__field">
+              <label for="wPozemekDruh">Druh pozemku</label>
+              <select id="wPozemekDruh" name="pozemek_druh">
+                <option value="">Vyberte druh pozemku</option>
+                <option>Komerční</option>
+                <option>Bydlení</option>
+                <option>Zahrada</option>
+                <option>Pole</option>
+                <option>Les</option>
+                <option>Rybník</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wPozemekPlocha">Plocha pozemku (m²)</label>
+              <input type="number" id="wPozemekPlocha" name="pozemek_plocha" min="1" placeholder="např. 800" />
+            </div>
+          </div>
+
+          <div class="wizard__params" data-params="ostatni">
+            <div class="wizard__field">
+              <label for="wOstatniPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wOstatniPlocha" name="ostatni_plocha" min="1" placeholder="např. 150" />
+            </div>
+            <div class="wizard__field">
+              <label for="wOstatniPozemek">Plocha pozemku (m², nepovinné)</label>
+              <input type="number" id="wOstatniPozemek" name="ostatni_pozemek" min="1" placeholder="např. 300" />
+            </div>
           </div>
         </div>
 
@@ -333,12 +412,16 @@
         <div class="wizard__step" data-step="5">
           <p class="wizard__question">Kam vám mám poslat odhad?</p>
           <div class="wizard__field">
-            <label for="wName">Jméno</label>
+            <label for="wName">Jméno a příjmení</label>
             <input type="text" id="wName" name="name" placeholder="Vaše jméno" />
           </div>
           <div class="wizard__field">
-            <label for="wContact">Telefon nebo e-mail</label>
-            <input type="text" id="wContact" name="contact" placeholder="+420 … nebo e-mail" />
+            <label for="wPhone">Telefon</label>
+            <input type="tel" id="wPhone" name="phone" placeholder="+420 …" />
+          </div>
+          <div class="wizard__field">
+            <label for="wEmail">E-mail (nepovinné)</label>
+            <input type="email" id="wEmail" name="email" placeholder="vas@email.cz" />
           </div>
         </div>
 
@@ -398,47 +481,37 @@
       </div>
 
       <div class="grid grid--3">
-        <article class="listing-card">
+        <a class="listing-card" href="nemovitost-smichov-dva-byty.html">
           <div class="listing-card__media">
-            <div class="media-placeholder__fallback" role="img" aria-label="Prostorný byt 5+1 v Praze 5 na Smíchově – ilustrační fotografie interiéru">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10"/></svg>
-            </div>
+            <img src="images/nemovitost-smichov-dva-byty.jpg" alt="Obývací pokoj v bytě 3+kk na Smíchově" width="1024" height="768" loading="lazy" />
             <span class="listing-tag">V nabídce</span>
           </div>
           <div class="listing-card__body">
             <p class="listing-card__loc">Praha 5 &mdash; Smíchov</p>
-            <h3 class="listing-card__title">Prostorný byt 5+1, 168&nbsp;m²</h3>
-            <div class="listing-card__meta"><span>Byt · 168 m²</span><span>cena k jednání</span></div>
+            <h3 class="listing-card__title">Dva byty 3+kk na Smíchově</h3>
+            <p class="listing-card__desc">Investice i budoucí mezonet &ndash; dva byty nad sebou v rekonstruovaném cihlovém domě, každý s vlastním vstupem.</p>
+            <div class="listing-card__meta"><span>Byt · 170 m²</span><span>29 750 000 Kč</span></div>
           </div>
-        </article>
+        </a>
 
-        <article class="listing-card">
+        <a class="listing-card" href="nemovitost-smichov-atypicky-byt.html">
           <div class="listing-card__media">
-            <div class="media-placeholder__fallback" role="img" aria-label="Vícegenerační rodinný dům v Želízech na Mělníku – ilustrační fotografie exteriéru">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10"/></svg>
-            </div>
+            <img src="images/nemovitost-smichov-atypicky-byt.jpg" alt="Kuchyň s jídelnou v atypickém bytě u Janáčkova nábřeží" width="1024" height="768" loading="lazy" />
             <span class="listing-tag">V nabídce</span>
           </div>
           <div class="listing-card__body">
-            <p class="listing-card__loc">Želízy, okres Mělník</p>
-            <h3 class="listing-card__title">Vícegenerační rodinný dům</h3>
-            <div class="listing-card__meta"><span>Rodinný dům</span><span>užitná plocha na dotaz</span></div>
+            <p class="listing-card__loc">Praha 5 &mdash; Smíchov</p>
+            <h3 class="listing-card__title">Atypický byt 126&nbsp;m² u Janáčkova nábřeží</h3>
+            <p class="listing-card__desc">Cihlový dům s výtahem, byt rozdělený na dvě samostatné jednotky 2+kk s balkonem a terasou &ndash; investice i dvougenerační bydlení.</p>
+            <div class="listing-card__meta"><span>Byt · 126 m²</span><span>19 490 000 Kč</span></div>
           </div>
-        </article>
+        </a>
 
-        <article class="listing-card">
-          <div class="listing-card__media">
-            <div class="media-placeholder__fallback" role="img" aria-label="Rodinný dům v klidné části Rožmitálu pod Třemšínem – ilustrační fotografie exteriéru">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10"/></svg>
-            </div>
-            <span class="listing-tag is-reserved">Rezervováno</span>
-          </div>
-          <div class="listing-card__body">
-            <p class="listing-card__loc">Rožmitál pod Třemšínem</p>
-            <h3 class="listing-card__title">Rodinný dům v klidné části</h3>
-            <div class="listing-card__meta"><span>Rodinný dům</span><span>užitná plocha na dotaz</span></div>
-          </div>
-        </article>
+        <a class="card card--cta" href="#kontakt">
+          <h3>Zajímá vás víc nabídek?</h3>
+          <p>Nové nemovitosti přidávám průběžně &ndash; napište nebo zavolejte a pošlu vám aktuální přehled.</p>
+          <span class="btn btn--accent btn--sm">Napsat Romaně</span>
+        </a>
       </div>
     </div>
   </section>
@@ -453,8 +526,8 @@
 
       <div class="testimonial-feature" id="testimonialFeature">
         <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
-        <blockquote id="testimonialQuote">&bdquo;Profesionální přístup a schopnost řešit neočekávané problémy. Paní Trefná vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane naším makléřem.&ldquo;</blockquote>
-        <cite id="testimonialCite">&mdash; Rodina P. · Prodej rodinného domu, Středočeský kraj</cite>
+        <blockquote id="testimonialQuote">&bdquo;Paní Trefná bezproblémově zajistila veškeré služby (včetně právních konzultací a přípravy všech potřebných dokladů) při trochu problémovém prodeji částí lesa, takže celá transakce proběhla hladce a pro mne naprosto bez starostí. Moc děkuji.&ldquo;</blockquote>
+        <cite id="testimonialCite">&mdash; Ing. Petr Kusebauch · Prodej pozemku</cite>
         <div class="testimonial-controls">
           <button class="carousel-btn" id="testimonialPrev" aria-label="Předchozí reference">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -462,30 +535,58 @@
           <button class="carousel-btn" id="testimonialNext" aria-label="Další reference">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           </button>
-          <span class="testimonial-counter" id="testimonialCounter">1 / 4</span>
+          <span class="testimonial-counter" id="testimonialCounter">1 / 6</span>
         </div>
       </div>
 
-      <div class="grid grid--4" id="testimonialGrid">
+      <div class="grid grid--3" id="testimonialGrid">
         <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
           <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
-          <p>Profesionální přístup a schopnost řešit neočekávané problémy. Vždy zachovala chladnou hlavu.</p>
-          <cite>Rodina P. · Prodej rodinného domu, Středočeský kraj</cite>
+          <p>Paní Trefná bezproblémově zajistila veškeré služby (včetně právních konzultací a přípravy všech potřebných dokladů) při trochu problémovém prodeji částí lesa, takže celá transakce proběhla hladce a pro mne naprosto bez starostí. Moc děkuji.</p>
+          <cite>Ing. Petr Kusebauch · Prodej pozemku</cite>
         </div>
         <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
           <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
-          <p>Lidský přístup, přesné dodržení dohod a kompletní právní servis.</p>
-          <cite>Ing. J. N. · Prodej bytu, Praha</cite>
+          <p>Realitní kancelář Romana Reality mi nabídla při prodeji mých několika pozemků ve Vimperku kvalifikovaný, spolehlivý odhad s možností prodeje, trpělivost, výbornou komunikaci, bezproblémovou spolupráci a naprosto profesionální přístup s nadstandardním lidským přístupem.</p>
+          <cite>Zdena P. · Prodej pozemků</cite>
         </div>
         <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
           <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
-          <p>Vyřešila komplikace s dokumenty a komunikovala s úřady.</p>
-          <cite>M. a K. H. · Prodej nemovitosti z dědictví</cite>
+          <p>Paní Trefnou jednoznačně doporučuji! Můžete očekávat profesionální a současně milý a vstřícný přístup. Prodej bytu proběhl ukázkově. Paní Trefná pokaždé velmi rychle reagovala na veškeré dotazy a informovala mne o jednotlivých krocích. Dokumenty měla vždy precizně připravené a jednala se mnou na rovinu. Prezentace bytu byla skvělá &ndash; znalost lokality, profesionální fotky a přesný popis. Je to realitní makléřka na správném místě.</p>
+          <cite>Kateřina Z. · Prodej bytu</cite>
         </div>
         <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
           <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
-          <p>Znalost lokality, profesionální prezentace a rychlá komunikace.</p>
-          <cite>P. Z. · Prodej bytu, Praha</cite>
+          <p>Překvapil mě její profesionální přístup se smyslem pro obchod. Hned na počátku měla z mé strany několik zadání, která bezchybně splnila. Vzhledem k jejím schopnostem vřele doporučuji.</p>
+          <cite>Jana K. · Prodej rodinného domu</cite>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
+          <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
+          <p>Paní Romana Trefná prodávala můj pozemek &ndash; stavební parcelu v obci Kly u Mělníka. Sjednala mi velmi dobrou cenu v krátkém čase, zajistila uzavření smlouvy a vyřídila veškeré potřebné náležitosti. Její přístup byl profesionální.</p>
+          <cite>Hana K. · Prodej pozemku</cite>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-card__avatar" aria-hidden="true">
+            <svg width="16" height="14" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="63.5" cy="23" r="7" stroke="currentColor" stroke-width="6"/></svg>
+          </span>
+          <span class="testimonial-feature__quote-mark">&ldquo;&rdquo;</span>
+          <p>Profesionální přístup a schopnost řešit neočekávané problémy. Vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane mým makléřem.</p>
+          <cite>Marco P. · Prodej restaurace</cite>
         </div>
       </div>
     </div>
@@ -633,10 +734,13 @@
     <div class="footer-grid">
       <div>
         <a href="#top" class="brand">
-          <span class="brand__mark">R</span>
+          <svg class="brand__icon" viewBox="0 0 130 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 48 L63 1 L91 28 L91 12 L108 12 L108 39 L128 49" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="63.5" cy="23" r="6" stroke="currentColor" stroke-width="4"/>
+      </svg>
           <span>
             <span class="brand__name">Romana Reality</span>
-            <span class="brand__tag">Romana Trefná</span>
+            <span class="brand__tag">20 let na realitním trhu</span>
           </span>
         </a>
         <p class="footer-about">Osobní realitní servis pro klienty v Praze a Středočeském kraji. Prodej, koupě, pronájem, ocenění a kompletní právní servis.</p>
