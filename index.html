@@ -307,14 +307,95 @@
         </div>
 
         <div class="wizard__step" data-step="3">
-          <p class="wizard__question">Jaká je orientační velikost nemovitosti?</p>
-          <div class="wizard__field">
-            <label for="wSize">Plocha v m²</label>
-            <input type="number" id="wSize" name="size" min="1" placeholder="např. 85" />
+          <p class="wizard__question" id="wizardParamsQuestion">Jaké jsou parametry nemovitosti?</p>
+
+          <div class="wizard__params" data-params="byt">
+            <div class="wizard__field">
+              <label for="wBytDispozice">Dispozice</label>
+              <select id="wBytDispozice" name="byt_dispozice">
+                <option value="">Vyberte dispozici</option>
+                <option>1+kk</option>
+                <option>1+1</option>
+                <option>2+kk</option>
+                <option>2+1</option>
+                <option>3+kk</option>
+                <option>3+1</option>
+                <option>4+kk</option>
+                <option>4+1</option>
+                <option>5+kk a větší</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wBytPlocha" name="byt_plocha" min="1" placeholder="např. 68" />
+            </div>
+            <div class="wizard__field">
+              <label for="wBytVlastnictvi">Vlastnictví</label>
+              <select id="wBytVlastnictvi" name="byt_vlastnictvi">
+                <option value="">Vyberte typ vlastnictví</option>
+                <option>Osobní</option>
+                <option>Družstevní</option>
+                <option>Jiné</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytStavba">Stavba</label>
+              <select id="wBytStavba" name="byt_stavba">
+                <option value="">Vyberte typ stavby</option>
+                <option>Panel</option>
+                <option>Cihla</option>
+                <option>Ostatní</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wBytPatro">Patro</label>
+              <input type="text" id="wBytPatro" name="byt_patro" placeholder="např. 3. z 8" />
+            </div>
           </div>
-          <div class="wizard__field">
-            <label for="wLayout">Dispozice (nepovinné)</label>
-            <input type="text" id="wLayout" name="layout" placeholder="např. 3+kk" />
+
+          <div class="wizard__params" data-params="dum">
+            <div class="wizard__field">
+              <label for="wDumVelikost">Velikost</label>
+              <input type="text" id="wDumVelikost" name="dum_velikost" placeholder="např. 3+1" />
+            </div>
+            <div class="wizard__field">
+              <label for="wDumPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wDumPlocha" name="dum_plocha" min="1" placeholder="např. 120" />
+            </div>
+            <div class="wizard__field">
+              <label for="wDumPozemek">Plocha pozemku (m²)</label>
+              <input type="number" id="wDumPozemek" name="dum_pozemek" min="1" placeholder="např. 500" />
+            </div>
+          </div>
+
+          <div class="wizard__params" data-params="pozemek">
+            <div class="wizard__field">
+              <label for="wPozemekDruh">Druh pozemku</label>
+              <select id="wPozemekDruh" name="pozemek_druh">
+                <option value="">Vyberte druh pozemku</option>
+                <option>Komerční</option>
+                <option>Bydlení</option>
+                <option>Zahrada</option>
+                <option>Pole</option>
+                <option>Les</option>
+                <option>Rybník</option>
+              </select>
+            </div>
+            <div class="wizard__field">
+              <label for="wPozemekPlocha">Plocha pozemku (m²)</label>
+              <input type="number" id="wPozemekPlocha" name="pozemek_plocha" min="1" placeholder="např. 800" />
+            </div>
+          </div>
+
+          <div class="wizard__params" data-params="ostatni">
+            <div class="wizard__field">
+              <label for="wOstatniPlocha">Užitná plocha (m²)</label>
+              <input type="number" id="wOstatniPlocha" name="ostatni_plocha" min="1" placeholder="např. 150" />
+            </div>
+            <div class="wizard__field">
+              <label for="wOstatniPozemek">Plocha pozemku (m², nepovinné)</label>
+              <input type="number" id="wOstatniPozemek" name="ostatni_pozemek" min="1" placeholder="např. 300" />
+            </div>
           </div>
         </div>
 
@@ -331,12 +412,16 @@
         <div class="wizard__step" data-step="5">
           <p class="wizard__question">Kam vám mám poslat odhad?</p>
           <div class="wizard__field">
-            <label for="wName">Jméno</label>
+            <label for="wName">Jméno a příjmení</label>
             <input type="text" id="wName" name="name" placeholder="Vaše jméno" />
           </div>
           <div class="wizard__field">
-            <label for="wContact">Telefon nebo e-mail</label>
-            <input type="text" id="wContact" name="contact" placeholder="+420 … nebo e-mail" />
+            <label for="wPhone">Telefon</label>
+            <input type="tel" id="wPhone" name="phone" placeholder="+420 …" />
+          </div>
+          <div class="wizard__field">
+            <label for="wEmail">E-mail (nepovinné)</label>
+            <input type="email" id="wEmail" name="email" placeholder="vas@email.cz" />
           </div>
         </div>
 

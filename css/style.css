@@ -743,6 +743,16 @@ h2.section-title {
   color: var(--accent-dark);
 }
 
+.wizard__params {
+  display: none;
+}
+
+.wizard__params.is-active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
 .wizard__field {
   margin-bottom: 16px;
 }
@@ -1449,6 +1459,10 @@ h2.section-title {
 
   .wizard__options {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wizard__params.is-active {
+    grid-template-columns: 1fr;
   }
 
   .hero__facts {
