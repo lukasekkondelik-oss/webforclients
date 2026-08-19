@@ -6,6 +6,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.romanareality.cz/nemovitost-smichov-dva-byty.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.romanareality.cz/nemovitost-smichov-atypicky-byt.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.romanareality.cz/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

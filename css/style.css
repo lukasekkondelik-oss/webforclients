@@ -185,23 +185,26 @@ h2.section-title {
 
 .btn--outline {
   background: transparent;
-  border-color: var(--border);
+  border-width: 2px;
+  border-color: var(--accent);
   color: var(--ink);
+  font-weight: 700;
+  padding: 13px 25px;
 }
 
 .section--navy .btn--outline {
-  border-color: var(--border-dark);
   color: var(--on-navy);
 }
 
 .btn--outline:hover {
+  background: var(--accent);
   border-color: var(--accent);
-  color: var(--accent-dark);
+  color: #fff8ee;
 }
 
 .section--navy .btn--outline:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
+  background: var(--accent);
+  color: var(--navy);
 }
 
 .btn--accent {
@@ -363,6 +366,32 @@ h2.section-title {
   background: none;
   border: none;
   padding: 6px;
+}
+
+@media (max-width: 1320px) {
+  .site-header .container {
+    gap: 16px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .brand__tag {
+    display: none;
+  }
+
+  .header-phone span {
+    display: none;
+  }
 }
 
 .nav-toggle span {
@@ -871,10 +900,18 @@ h2.section-title {
 
 /* ---------- Listings ---------- */
 .listing-card {
+  display: block;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
   background: #fff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.listing-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
 }
 
 .listing-card__media {
@@ -1415,7 +1452,8 @@ h2.section-title {
 }
 
 .back-link {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 30px;
