@@ -105,6 +105,12 @@
   aspect-ratio: 4/5;
 }
 
+.property-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .property-energy {
   margin-top: 4px;
   margin-bottom: 20px;
