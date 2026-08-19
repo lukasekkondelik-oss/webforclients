@@ -45,20 +45,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Testimonial carousel ---------- */
   const testimonials = [
     {
-      quote: "„Profesionální přístup a schopnost řešit neočekávané problémy. Paní Trefná vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane naším makléřem.“",
-      cite: "— Rodina P. · Prodej rodinného domu, Středočeský kraj",
+      quote: "„Paní Trefná bezproblémově zajistila veškeré služby (včetně právních konzultací a přípravy všech potřebných dokladů) při trochu problémovém prodeji částí lesa, takže celá transakce proběhla hladce a pro mne naprosto bez starostí. Moc děkuji.“",
+      cite: "— Ing. Petr Kusebauch · Prodej pozemku",
     },
     {
-      quote: "„Lidský přístup, přesné dodržení dohod a kompletní právní servis po celou dobu prodeje.“",
-      cite: "— Ing. J. N. · Prodej bytu, Praha",
+      quote: "„Realitní kancelář Romana Reality mi nabídla při prodeji mých několika pozemků ve Vimperku kvalifikovaný, spolehlivý odhad s možností prodeje, trpělivost, výbornou komunikaci, bezproblémovou spolupráci a naprosto profesionální přístup s nadstandardním lidským přístupem.“",
+      cite: "— Zdena P. · Prodej pozemků",
     },
     {
-      quote: "„Vyřešila komplikace s dokumenty a komunikovala za nás s úřady, aniž bychom se museli o cokoliv starat.“",
-      cite: "— M. a K. H. · Prodej nemovitosti z dědictví",
+      quote: "„Paní Trefnou jednoznačně doporučuji! Můžete očekávat profesionální a současně milý a vstřícný přístup. Prodej bytu proběhl ukázkově. Dokumenty měla vždy precizně připravené a jednala se mnou na rovinu. Je to realitní makléřka na správném místě.“",
+      cite: "— Kateřina Z. · Prodej bytu",
     },
     {
-      quote: "„Znalost lokality, profesionální prezentace a rychlá komunikace po celou dobu spolupráce.“",
-      cite: "— P. Z. · Prodej bytu, Praha",
+      quote: "„Překvapil mě její profesionální přístup se smyslem pro obchod. Hned na počátku měla z mé strany několik zadání, která bezchybně splnila. Vzhledem k jejím schopnostem vřele doporučuji.“",
+      cite: "— Jana K. · Prodej rodinného domu",
+    },
+    {
+      quote: "„Paní Romana Trefná prodávala můj pozemek – stavební parcelu v obci Kly u Mělníka. Sjednala mi velmi dobrou cenu v krátkém čase, zajistila uzavření smlouvy a vyřídila veškeré potřebné náležitosti. Její přístup byl profesionální.“",
+      cite: "— Hana K. · Prodej pozemku",
+    },
+    {
+      quote: "„Profesionální přístup a schopnost řešit neočekávané problémy. Vždy zachovala chladnou hlavu a byla perfektně připravená. Po této zkušenosti už zůstane mým makléřem.“",
+      cite: "— Marco P. · Prodej restaurace",
     },
   ];
 
