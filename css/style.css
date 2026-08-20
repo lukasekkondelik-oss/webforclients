@@ -314,6 +314,7 @@ h2.section-title {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-dark);
+  white-space: nowrap;
 }
 
 .brand__tag {
@@ -324,11 +325,13 @@ h2.section-title {
   color: var(--ink-soft);
   text-transform: uppercase;
   margin-top: 3px;
+  white-space: nowrap;
 }
 
 .main-nav {
   display: flex;
   gap: 30px;
+  flex-shrink: 0;
 }
 
 .main-nav a {
@@ -337,6 +340,7 @@ h2.section-title {
   color: var(--ink);
   position: relative;
   padding: 4px 0;
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -347,6 +351,7 @@ h2.section-title {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 .header-phone {
@@ -355,6 +360,7 @@ h2.section-title {
   gap: 8px;
   font-weight: 600;
   font-size: 0.92rem;
+  white-space: nowrap;
 }
 
 .header-phone svg {
